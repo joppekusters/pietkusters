@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piet Kusters</title>
+<style>
+  /* CSS styles */
+  html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ffffff;
+    font-family: Futura, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* Hide scrollbar in Chrome */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Menu button styles */
+  .piet-kusters {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    font-size: 32px;
+  }
+
+  .menu-buttons {
+    position: fixed;
+    top: 35px; /* Default position for desktop */
+    right: 30px;
+    z-index: 999; /* Ensure buttons stay on top */
+    display: flex;
+    flex-wrap: nowrap; /* Ensure buttons don't wrap */
+  }
+
+  .menu-button {
+    min-width: 100px; /* Minimum width for both desktop and mobile */
+    height: 45px; /* Fixed height for both desktop and mobile */
+    background-color: #F7F7F7;
+    border: 1px solid #F7F7F7; /* Add a small border, aligned inside */
+    border-radius: 22.5px;
+    margin-right: 7.5px;
+    margin-left: 7.5px;
+    outline: none;
+    font-family: Futura, Arial, sans-serif; /* Use the same font-family as specified in html, body */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
+    transition: all 0.4s ease-in-out; /* Apply transition to all properties over 0.3 seconds with ease-in-out timing function */
+  }
+
+   /* Hover state for menu buttons */
+  .menu-button:hover {
+    cursor: pointer;
+    background-color: #ffffff; /* Change background color to white */
+    border: 1px solid #B6B6B6; /* Add a small border, aligned inside */
+  }
+
+  /* Mobile breakpoint */
+  @media (max-width: 767px) {
+    .menu-buttons {
+      bottom: 20px; /* Adjusted position for mobile */
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center; /* Center buttons horizontally */
+    }
+  }
+
+  .content-container {
+    position: relative;
+    height: 100vh;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    display: flex;
+    justify-content: flex-start; /* Align items at the beginning */
+    align-items: center;
+    padding: 50px 50px 0 0; /* Add padding to the sides */
+    cursor: grab; /* Change cursor to grab */
+    user-select: none; /* Disable text selection while dragging */
+  }
+
+  .content-container:active {
+    cursor: grabbing; /* Change cursor to grabbing when clicked */
+  }
+
+  .content {
+    display: flex;
+    position: relative; /* Ensure relative positioning */
+    margin: 0 -50px; /* Counteract the padding */
+  }
+
+ .image-container {
+  overflow: auto; /* Enable horizontal scrolling */
+  scroll-snap-align: center;
+  flex-shrink: 0; /* Allow container to shrink */
+  padding: 0 50px; /* Margin between image containers */
+  max-height: 70vh; /* Set maximum height */
+  width: 30%; /* Initial width */
+}
+  
+  /* Adjust container width for small screens */
+@media (max-width: 375px) {
+  .image-container {
+    width: 22.5%;
+  }
+}
+
+    /* Adjust container width for smallest screens */
+@media (max-width: 350px) {
+  .image-container {
+    width: 15%;
+  }
+}
+
+  .image-container:first-child {
+    padding: 0 50px 0 150px;
+  }
+
+  .image-container:last-child {
+    padding: 0 150px 0 50px;
+  }
+
+  .image-container img {
+    height: auto; /* Allow natural height */
+    width: 100%; /* Fill container width */
+    object-fit: contain; /* Fit image within container */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Subtle drop shadow */
+  }
+
+  .caption {
+    text-align: left; /* Align captions to the left */
+  }
+
+  .caption p:first-child {
+    margin-bottom: 0px;
+  }
+
+  .caption p:not(:first-child) {
+    color: #B2B2B2;
+    margin: 0px;
+  }
+</style>
+</head>
+<body>
+
+<div class="content-container" id="content-container">
+  <div class="content" id="scroll-container">
+    <!-- Image containers with captions -->
+    <div class="image-container">
+      <img src="https://assets.phillips.com/image/upload/t_Website_LotDetailMainImage/v1/auctions/UK010121/15_001.jpg" alt="Image 2">
+      <div class="caption">
+        <p>No. 3, 1949</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://news.artnet.com/app/news-upload/2021/10/78276_ROTHKO_vALT-1.jpg" alt="Image 3">
+      <div class="caption">
+        <p>No. 2, 1955</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://www.hollywoodreporter.com/wp-content/uploads/2012/11/rothko_no_1_painting_a_p.jpg?w=2000&h=1126&crop=1" alt="Image 4">
+      <div class="caption">
+        <p>No. 61 (Rust and Blue), 1953</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://media.nga.gov/iiif/a8c923e1-078d-4f94-b1f4-0e303afe2155__640/full/!740,560/0/default.jpg" alt="Image 5">
+      <div class="caption">
+        <p>Untitled, 1950</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>  
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="piet-kusters">Piet Kusters</div>
+
+<div class="menu-buttons">
+  <button class="menu-button">About</button>
+  <button class="menu-button">Contact</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const contentContainer = document.getElementById('content-container');
+
+    // Smooth scrolling animation
+    function smoothScroll(targetX) {
+      const startTime = performance.now();
+      const duration = 1200; // Increase duration for longer ease-out animation
+      const initialScroll = contentContainer.scrollLeft;
+
+      function step(currentTime) {
+        const timeElapsed = currentTime - startTime;
+        const scrollAmount = Math.easeOutQuad(timeElapsed, initialScroll, targetX - initialScroll, duration);
+        contentContainer.scrollLeft = scrollAmount;
+        if (timeElapsed < duration) {
+          requestAnimationFrame(step);
+        } else {
+          contentContainer.scrollLeft = targetX; // Ensure final position is accurate
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    // Easing function for smooth scrolling (easeOutQuad)
+    Math.easeOutQuad = function (t, b, c, d) {
+      t /= d;
+      return -c * t*(t-2) + b;
+    };
+
+    // Event listener for mouse wheel scrolling
+    contentContainer.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      const delta = e.deltaY * 2; // Increase scrolling speed
+      const targetX = contentContainer.scrollLeft + delta;
+      smoothScroll(targetX);
+    });
+
+    // Event listeners for mouse down, move, and up
+    let isMouseDown = false;
+    let startX, scrollLeft;
+
+    contentContainer.addEventListener('mousedown', function (e) {
+      isMouseDown = true;
+      startX = e.pageX - contentContainer.offsetLeft;
+      scrollLeft = contentContainer.scrollLeft;
+
+      contentContainer.addEventListener('mousemove', mouseMoveHandler);
+    });
+
+    contentContainer.addEventListener('mouseleave', function () {
+      if (isMouseDown) {
+        isMouseDown = false;
+        contentContainer.removeEventListener('mousemove', mouseMoveHandler);
+      }
+    });
+
+    document.addEventListener('mouseup', function () {
+      if (isMouseDown) {
+        isMouseDown = false;
+        contentContainer.removeEventListener('mousemove', mouseMoveHandler);
+      }
+    });
+
+    function mouseMoveHandler(e) {
+      if (!isMouseDown) return;
+      e.preventDefault();
+      const x = e.pageX - contentContainer.offsetLeft;
+      const walk = (x - startX) * 3; // Increase dragging speed
+      const targetX = scrollLeft - walk;
+      smoothScroll(targetX);
+    }
+  });
+</script>
+
+</body>
+</html>
