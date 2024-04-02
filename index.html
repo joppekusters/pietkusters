@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piet Kusters</title>
+<style>
+  /* CSS styles */
+  html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ffffff;
+    font-family: Futura, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+	
+	
+	
+  /* Hide scrollbar in Chrome */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+	
+	
+	
+  /* Menu button styles */
+	
+  .piet-kusters {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    font-size: 32px;
+    font-family: Futura, Arial, sans-serif; /* Use the same font-family as specified in html, body */
+  }
+  .menu-buttons {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+  }
+  .menu-button {
+    width: 135px;
+    height: 45px;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 30px;
+    margin-right: 15px;
+    outline: none;
+    font-family: Futura, Arial, sans-serif; /* Use the same font-family as specified in html, body */
+  }
+  .menu-button:hover {
+    cursor: pointer;
+  }
+
+
+	
+  .content-container {
+    position: relative;
+    height: 100vh;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    display: flex;
+    justify-content: flex-start; /* Align items at the beginning */
+    align-items: center;
+    padding: 50px 50px 0 0; /* Add padding to the sides */
+  }
+  .content {
+    display: flex;
+    position: relative; /* Ensure relative positioning */
+    margin: 0 -50px; /* Counteract the padding */
+  }
+  .image-container {
+    overflow: auto; /* Enable horizontal scrolling */
+    scroll-snap-align: center;
+    flex-shrink: 0.05; /* Prevent container from shrinking */
+    padding: 0 50px; /* Margin between image containers */
+    max-height: 700px; /* Set maximum height */
+}
+  .image-container:first-child {
+	padding: 0 50px 0 150px;
+  }
+  .image-container:last-child {
+	padding: 0 150px 0 50px;
+  }
+  .image-container img {
+    height: auto; /* Allow natural height */
+    width: 100%; /* Fill container width */
+    object-fit: contain; /* Fit image within container */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Subtle drop shadow */
+  }
+  .caption {
+    text-align: left; /* Align captions to the left */
+  }
+  .caption p:first-child {
+    margin-bottom: 0px;
+  }
+  .caption p:not(:first-child) {
+    color: #B2B2B2;
+    margin: 0px;
+  }
+</style>
+</head>
+<body>
+
+<div class="content-container" id="content-container">
+  <div class="content" id="scroll-container">
+    <!-- Image containers with captions -->
+    <div class="image-container">
+      <img src="https://s26162.pcdn.co/wp-content/uploads/2024/01/rothko-painting.jpg" alt="Image 1">
+      <div class="caption">
+        <p>No. 61 (Rust and Blue), 1953</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://assets.phillips.com/image/upload/t_Website_LotDetailMainImage/v1/auctions/UK010121/15_001.jpg" alt="Image 2">
+      <div class="caption">
+        <p>No. 3, 1949</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://news.artnet.com/app/news-upload/2021/10/78276_ROTHKO_vALT-1.jpg" alt="Image 3">
+      <div class="caption">
+        <p>No. 2, 1955</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://www.hollywoodreporter.com/wp-content/uploads/2012/11/rothko_no_1_painting_a_p.jpg?w=2000&h=1126&crop=1" alt="Image 4">
+      <div class="caption">
+        <p>No. 61 (Rust and Blue), 1953</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="https://media.nga.gov/iiif/a8c923e1-078d-4f94-b1f4-0e303afe2155__640/full/!740,560/0/default.jpg" alt="Image 5">
+      <div class="caption">
+        <p>Untitled, 1950</p>
+        <p>Mark Rothko</p>
+        <p>Oil on canvas</p>
+        <p>€1.250,00</p>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="menu-buttons">
+  <button class="menu-button">About</button>
+  <button class="menu-button">Contact</button>
+</div>
+
+<div class="piet-kusters">Piet Kusters</div>
+
+<script>
+  // JavaScript code
+  const contentContainer = document.getElementById('content-container');
+
+  contentContainer.addEventListener('wheel', (event) => {
+    if (event.deltaY !== 0) {
+      event.preventDefault();
+      contentContainer.scrollLeft += event.deltaY;
+    }
+  });
+</script>
+
+</body>
+</html>
