@@ -93,9 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to hide overlay
-  function hideOverlay() {
-    var overlays = document.querySelectorAll('.overlay');
-    overlays.forEach(function(overlay) {
-      overlay.style.display = 'none';
-    });
-  }
+function hideOverlay(overlayId) {
+  var overlay = document.getElementById(overlayId);
+  overlay.classList.add('slide-out');
+  setTimeout(function() {
+    overlay.style.display = 'none';
+    overlay.classList.remove('slide-out');
+  }, 500); // Adjust timing to match animation duration
+}
