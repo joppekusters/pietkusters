@@ -1,7 +1,7 @@
 /* CSS styles */
 @font-face {
   font-family: 'Futura Pro Medium';
-  src: url('fonts/FuturaProMedium.woff2') format('woff2'), /* Modern Browsers */
+  src: url('fonts/FuturaProMedium.woff2'), /* Modern Browsers */
        url('fonts/FuturaProMedium.woff') format('woff');   /* Older Browsers */
   font-weight: normal;
   font-style: normal;
@@ -24,11 +24,19 @@ body {
   display: none;
 }
 
-/* Override phone number styles */
-.phone-number {
-  color: inherit; /* Inherit the color from the parent element */
-  text-decoration: none; /* Remove any default link underline */
+
+
+/* General elements */
+.horizontal-line {
+    border-top: 1px solid #676767;
+    width: 100%;
 }
+
+.highlight-text {
+    color: #676767;
+}
+
+
 
 /* Menu button styles */
 .piet-kusters {
@@ -83,9 +91,11 @@ body {
   border: 1px solid #FFFFFF; /* Add a small border, aligned inside */
 }
 
+
+
 .content-container {
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Disable vertical scrolling */
   display: flex;
@@ -142,6 +152,8 @@ body {
   color: #B2B2B2;
   margin: 0px;
 }
+
+
 
 /* CSS styles for overlay */
 .overlay {
@@ -259,7 +271,8 @@ body {
 
   .overlay {
     bottom: 20px; /* Adjusted position for mobile */
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 80px);
+	min-height: calc(100vh - 80px);
     min-width: 100vw;
     margin: 0 0 -20px 0;
     top: auto;
@@ -267,14 +280,30 @@ body {
     transform: translateX(-50%);
     justify-content: center; /* Center buttons horizontally */
   }
+	
+  .content-container {
+    padding: 20px 20px 0 0; /* Add padding to the sides */
+  }
+
+  .image-container {
+    padding: 0 20px; /* Margin between image containers */
+  }
+	
+  .image-container:first-child {
+    padding: 0 20px 0 95px;
+  }
+
+  .image-container:last-child {
+    padding: 0 40px 0 20px;
+  }
 
   /* Slide in and out animation of overlay element */
   @keyframes slideInOverlay {
     0% {
-      bottom: -100vh; /* Start position outside the viewport */
+      bottom: calc(-100vh + 80px); /* Start position outside the viewport */
     }
     100% {
-      bottom: 0; /* Final position */
+      bottom: 0px; /* Final position */
     }
   }
 
