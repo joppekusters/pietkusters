@@ -1,10 +1,17 @@
 /* CSS styles */
-html, body {
+@font-face {
+  font-family: 'Futura Pro Medium';
+  src: url('fonts/FuturaProMedium.woff2') format('woff2'), /* Modern Browsers */
+       url('fonts/FuturaProMedium.woff') format('woff');   /* Older Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
   margin: 0px;
   padding: 0px;
   background-color: #ffffff;
-  font-family: Futura LT Pro, Futura, Arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Futura Pro Medium', Futura, Arial, sans-serif; /* Specify the font-family */
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.04em;
@@ -15,6 +22,12 @@ html, body {
 /* Hide scrollbar in Chrome */
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* Override phone number styles */
+.phone-number {
+  color: inherit; /* Inherit the color from the parent element */
+  text-decoration: none; /* Remove any default link underline */
 }
 
 /* Menu button styles */
@@ -43,7 +56,6 @@ html, body {
   margin-right: 7.5px;
   margin-left: 7.5px;
   outline: none;
-  font-family: Futura, Arial, sans-serif; /* Use the same font-family as specified in html, body */
   box-sizing: border-box; /* Include padding and borders in the total width and height */
   transition: all 0.4s ease-in-out; /* Apply transition to all properties over 0.3 seconds with ease-in-out timing function */
   text-decoration: none; /* Remove default hyperlink underline */
@@ -169,7 +181,6 @@ html, body {
   height: 45px; /* Fixed height for both desktop and mobile */
   border: 1px solid #FFFFFF; /* Add a small border, aligned inside */
   border-radius: 22.5px;
-  font-family: Futura, Arial, sans-serif; /* Use the same font-family as specified in html, body */
   box-sizing: border-box; /* Include padding and borders in the total width and height */
   transition: all 0.4s ease-in-out; /* Apply transition to all properties over 0.3 seconds with ease-in-out timing function */
   text-decoration: none; /* Remove default hyperlink underline */
