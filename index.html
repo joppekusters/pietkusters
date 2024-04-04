@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piet Kusters</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+	
+</head>
+<body>
+
+<div class="content-container" id="content-container">
+  <div class="content" id="scroll-container">
+    <!-- Image containers with captions -->
+    <div class="image-container">
+      <img src="images/Stations of the Cross 10.jpg" alt="A painting of Jesus Christ">
+      <div class="caption">
+        <p>Stations of the Cross, No. 10</p>
+        <p>Oil paint on canvas</p>
+        <p>800x1.000mm</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="images/Stations of the Cross 11.jpg" alt="A painting of Jesus Christ's hand nailed to the cross">
+      <div class="caption">
+        <p>Stations of the Cross, No. 11</p>
+        <p>Oil paint on canvas</p>
+        <p>800x1.000mm</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="images/Geisha 01.jpg" alt="A painting of a Geisha">
+      <div class="caption">
+        <p>Geisha, No. 01</p>
+        <p>Oil paint on canvas</p>
+        <p>800x1.000mm</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="images/Geisha 02.jpg" alt="A painting of a Geisha">
+      <div class="caption">
+        <p>Geisha, No. 02</p>
+        <p>Oil paint on canvas</p>
+        <p>800x1.000mm</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+	<div class="image-container">
+      <img src="images/Geisha 03.jpg" alt="A painting of a Geisha">
+      <div class="caption">
+        <p>Geisha, No. 03</p>
+        <p>Oil paint on canvas</p>
+        <p>800x1.000mm</p>
+        <p>Price on request</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="piet-kusters">Piet Kusters</div>
+
+<div class="menu-buttons">
+  <a href="#" class="menu-button" id="aboutButton" onclick="showOverlay('aboutOverlay', event)">About</a>
+  <a href="#" class="menu-button" id="contactButton" onclick="showOverlay('contactOverlay', event)">Contact</a>
+</div>
+
+<!-- About Overlay -->
+<div class="overlay" id="aboutOverlay">
+  <div class="overlay-content">
+  <div class="overlay-button">
+    <a href="#" class="overlay-button" id="closeButton" onclick="hideOverlay('aboutOverlay', event)">Close</a>
+  </div>
+	 <div class="overlay-title">About</div>
+     <div class="overlay-image-wrapper">
+        <img src="images/Portrait placeholder.jpg" alt="Overlay Image" class="overlay-image">
+     </div>
+    <div class="overlay-caption">Self portrait, Oil paint on canvas, 2001</div>
+    <p>Piet Kusters (1945–2012) was a Dutch painter known for his ... He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather.</p>
+  </div>
+</div>
+
+<!-- Contact Overlay -->
+<div class="overlay" id="contactOverlay">
+  <div class="overlay-content">
+  <div class="overlay-button">
+    <a href="#" class="overlay-button" id="closeButton" onclick="hideOverlay('contactOverlay', event)">Close</a>
+  </div>
+	 <div class="overlay-title">Contact</div>
+    <p>Contact information goes here.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
