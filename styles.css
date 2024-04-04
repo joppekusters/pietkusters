@@ -3,11 +3,11 @@ html, body {
   margin: 0px;
   padding: 0px;
   background-color: #ffffff;
-  font-family: Futura, Arial, sans-serif;
+  font-family: Futura LT Pro, Futura, Arial, sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
@@ -27,8 +27,8 @@ html, body {
 
 .menu-buttons {
   position: fixed;
-  top: 35px; /* Default position for desktop */
-  right: 30px;
+  top: 40px; /* Default position for desktop */
+  right: 40px;
   z-index: 100; /* Ensure buttons stay on top */
   display: flex;
   flex-wrap: nowrap; /* Ensure buttons don't wrap */
@@ -53,13 +53,6 @@ html, body {
   align-items: center; /* Center text vertically */
 }
 
-/* Hover state for menu buttons */
-.menu-button:hover {
-  cursor: pointer;
-  background-color: #ffffff; /* Change background color to white */
-  border: 1px solid #B6B6B6; /* Add a small border, aligned inside */
-}
-
 /* Set text color for visited links */
 .menu-button:visited {
   color: black;
@@ -67,18 +60,15 @@ html, body {
 
 /* Set text color for active links */
 .menu-button:active {
-  color: black;
+  color: white;
 }
 
-/* Mobile breakpoint */
-@media (max-width: 767px) {
-  .menu-buttons {
-    bottom: 20px; /* Adjusted position for mobile */
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    justify-content: center; /* Center buttons horizontally */
-  }
+/* Hover state for menu buttons */
+.menu-button:hover {
+  cursor: pointer;
+  background-color: #262626; /* Change background color to white */
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF; /* Add a small border, aligned inside */
 }
 
 .content-container {
@@ -111,20 +101,6 @@ html, body {
   padding: 0 50px; /* Margin between image containers */
   max-height: 70vh; /* Set maximum height */
   width: 25%; /* Initial width */
-}
-
-/* Adjust container width for small screens */
-@media (max-width: 375px) {
-  .image-container {
-    width: 20%;
-  }
-}
-
-/* Adjust container width for smallest screens */
-@media (max-width: 350px) {
-  .image-container {
-    width: 15%;
-  }
 }
 
 .image-container:first-child {
@@ -160,7 +136,7 @@ html, body {
   display: none; /* Hide the overlay by default */
   position: fixed;
   top: 0;
-  right: 0; /* Position at the right side */
+  right: -33vw; /* Initially position it outside the viewport */
   bottom: 0;
   width: 33vw; /* 33% of the viewport width */
   max-height: 100vh;
@@ -169,17 +145,23 @@ html, body {
   background-color: #262626;
   color: white;
   overflow: auto; /* Ensure content overflow is handled */
+  animation: slideInOverlay 0.7s cubic-bezier(0.1, 1, 0.5, 1) forwards;
+}
+
+.slide-out {
+  animation: slideOutOverlay 0.7s cubic-bezier(0.1, 1, 0.55, 1) forwards;
 }
 
 .overlay-content {
-  padding: 30px; /* Add padding to the content */
+  padding: 40px; /* Add padding to the content */
   text-align: left; /* Align text to the left */
 }
 
 .overlay-button {
   position: fixed;
-  top: 35px; /* Default position for desktop */
-  right: 30px;
+  top: 40px; /* Default position for desktop */
+  right: 40px;
+  margin-right: 7.5px;
   z-index: 300; /* Ensure buttons stay on top */
   display: flex;
   flex-wrap: nowrap; /* Ensure buttons don't wrap */
@@ -196,11 +178,15 @@ html, body {
   align-items: center; /* Center text vertically */
 }
 
-/* Hover state for overlay buttons */
 .overlay-button:hover {
   cursor: pointer;
   background-color: #f7f7f7; /* Change background color to white */
   border: 1px solid white; /* Add a small border, aligned inside */
+}
+
+/* Add animation for overlay button */
+.overlay-button.slide-in {
+  animation: slideInOverlay 0.5s ease-in-out forwards;
 }
 
 .overlay-title {
@@ -227,16 +213,82 @@ html, body {
   padding-bottom: 24px;
 }
 
+
+
+/* Slide in and out animation of overlay element */
+@keyframes slideInOverlay {
+  0% {
+    right: -33vw; /* Start position outside the viewport */
+  }
+  100% {
+    right: 0; /* Final position */
+  }
+}
+
+@keyframes slideOutOverlay {
+  0% {
+    right: 0; /* Start position */
+  }
+  100% {
+    right: -33vw; /* Final position outside the viewport */
+  }
+}
+
+
+
 /* Mobile breakpoint */
 @media (max-width: 767px) {
-  .overlay {
+  .menu-buttons {
     bottom: 20px; /* Adjusted position for mobile */
-	max-height: 80vh;
-	min-width: 100vw;
-	margin: 0 0 -20px 0;
     top: auto;
-	left: 50%;
+    left: 50%;
     transform: translateX(-50%);
     justify-content: center; /* Center buttons horizontally */
+  }
+
+  .overlay {
+    bottom: 20px; /* Adjusted position for mobile */
+    max-height: calc(100vh - 100px);
+    min-width: 100vw;
+    margin: 0 0 -20px 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center; /* Center buttons horizontally */
+  }
+
+  /* Slide in and out animation of overlay element */
+  @keyframes slideInOverlay {
+    0% {
+      bottom: -100vh; /* Start position outside the viewport */
+    }
+    100% {
+      bottom: 0; /* Final position */
+    }
+  }
+
+  @keyframes slideOutOverlay {
+    0% {
+      bottom: 0; /* Start position */
+    }
+    100% {
+      bottom: -100vh; /* Final position outside the viewport */
+    }
+  }
+}
+
+
+
+/* Adjust container width for small screens */
+@media (max-width: 375px) {
+  .image-container {
+    width: 20%;
+  }
+}
+
+/* Adjust container width for smallest screens */
+@media (max-width: 350px) {
+  .image-container {
+    width: 15%;
   }
 }
