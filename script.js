@@ -21,11 +21,15 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(step);
   }
 
+	
+	
   // Easing function for smooth scrolling (easeOutQuad)
   Math.easeOutQuad = function (t, b, c, d) {
     t /= d;
     return -c * t*(t-2) + b;
   };
+
+	
 
   // Event listener for mouse wheel scrolling
   contentContainer.addEventListener('wheel', function (e) {
@@ -34,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var targetX = contentContainer.scrollLeft + delta;
     smoothScroll(targetX);
   });
+
+
 
   // Event listeners for mouse down, move, and up
   var isMouseDown = false;
@@ -71,28 +77,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Function to show overlay
-function showOverlay(overlayId) {
-  // Hide all overlays
-  var overlays = document.querySelectorAll('.overlay');
-  overlays.forEach(function(overlay) {
-    overlay.style.display = 'none';
-  });
 
-  // Show the selected overlay
-  var selectedOverlay = document.getElementById(overlayId);
-  selectedOverlay.style.display = 'block';
 
-  // Adjust overlay height for mobile devices
-  var isMobileDevice = navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone)/i);
-  if (isMobileDevice) {
-    var viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    var overlayHeight = viewportHeight - 80; // Subtract 80px for the menu buttons
-    selectedOverlay.style.height = overlayHeight + 'px';
+  // Function to show overlay
+  function showOverlay(overlayId) {
+    // Hide all overlays
+    var overlays = document.querySelectorAll('.overlay');
+    overlays.forEach(function(overlay) {
+      overlay.style.display = 'none';
+    });
+
+    // Show the selected overlay
+    var selectedOverlay = document.getElementById(overlayId);
+    selectedOverlay.style.display = 'block';
   }
-}
 
-// Function to hide overlay
+  // Function to hide overlay
 function hideOverlay(overlayId) {
   var overlay = document.getElementById(overlayId);
   overlay.classList.add('slide-out');
