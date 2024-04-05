@@ -28,7 +28,7 @@ body {
 
 /* General elements */
 .horizontal-line {
-    border-top: 1px solid #676767;
+    border-top: 0.05em solid #676767; /* Approximately 0.5px */
     width: 100%;
 }
 
