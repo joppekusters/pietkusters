@@ -26,14 +26,50 @@ body {
 
 
 
-/* General elements */
+/* General styling and elements */
 .horizontal-line {
-    border-top: 0.05em solid #676767; /* Approximately 0.5px */
-    width: 100%;
+  width: 100%;
+  border-top: 1px solid #676767; /* Light gray color */
+  margin-top: 0px; /* Adjust spacing from content */
 }
 
-.highlight-text {
-    color: #676767;
+/* Highlighting text */
+.highlight {
+    color: #676767; /* specify the color you want */
+}
+
+/* Hyperlink styling */
+a {
+    color: white; /* default color */
+    text-decoration: none;
+	transition: color 0.4s ease-in-out; /* animation for color transition */
+}
+
+/* Active state */
+a:active {
+    color: white; /* specify the color for active state */
+}
+
+/* Hover state */
+a:hover {
+    color: #676767; /* specify the color for hover state */
+}
+
+/* Phone number styling */
+.tel {
+    color: white; /* specify the color for phone numbers */
+    text-decoration: none;
+	transition: color 0.4s ease-in-out; /* animation for color transition */
+}
+
+/* Active state for phone number */
+.tel:active {
+    color: white; /* specify the color for active state */
+}
+
+/* Hover state for phone number */
+.tel:hover {
+    color: #676767; /* specify the color for hover state */
 }
 
 
@@ -122,7 +158,21 @@ body {
   flex-shrink: 0; /* Allow container to shrink */
   padding: 0 50px; /* Margin between image containers */
   max-height: 70vh; /* Set maximum height */
-  width: 25%; /* Initial width */
+  width: 22.5%; /* Initial width */
+}
+
+/* Adjust container width for small screens */
+@media (max-width: 375px) {
+  .image-container {
+    width: 20%;
+  }
+}
+
+/* Adjust container width for smallest screens */
+@media (max-width: 350px) {
+  .image-container {
+    width: 15%;
+  }
 }
 
 .image-container:first-child {
@@ -164,6 +214,7 @@ body {
   bottom: 0;
   width: 33vw; /* 33% of the viewport width */
   max-height: 100vh;
+  max-width: 550px;
   z-index: 200; /* Ensure it's above other content */
   box-sizing: border-box;
   background-color: #262626;
@@ -314,21 +365,5 @@ body {
     100% {
       bottom: -100vh; /* Final position outside the viewport */
     }
-  }
-}
-
-
-
-/* Adjust container width for small screens */
-@media (max-width: 375px) {
-  .image-container {
-    width: 20%;
-  }
-}
-
-/* Adjust container width for smallest screens */
-@media (max-width: 350px) {
-  .image-container {
-    width: 15%;
   }
 }
